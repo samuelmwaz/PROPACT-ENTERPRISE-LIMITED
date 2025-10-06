@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Talent Acquisition & HR | PROPACT Enterprise Limited</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'propact-blue': '#143765', // Deep Navy/Blue
+                        'propact-amber': '#d4af37', // Gold/Brass Accent
+                        'propact-bg': '#f9fafb',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom styles from main site for look and scroll-padding */
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 6rem;
+        }
+        .section-header {
+            position: relative;
+            display: inline-block;
+            padding-bottom: 0.5rem;
+            margin-bottom: 2rem;
+        }
+        .section-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50%;
+            height: 4px;
+            background-color: #d4af37; /* Propact Amber Accent */
+            border-radius: 9999px;
+        }
+        .service-icon {
+            width: 2rem;
+            height: 2rem;
+            color: #d4af37; /* Propact Amber Accent */
+            fill: currentColor;
+        }
+    </style>
+</head>
+<body class="font-sans bg-propact-bg text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
+
+    <header class="sticky top-0 z-50 bg-white shadow-lg dark:bg-gray-800 dark:shadow-xl transition-colors duration-300">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <a href="index.html#home" class="flex items-center space-x-3">
+                <img src="images/propact_logo.jpg" alt="PROPACT Enterprise Limited Logo" class="h-10 w-10">
+                <div class="flex flex-col leading-none">
+                    <div class="text-2xl font-extrabold text-propact-blue dark:text-white tracking-wider">PROPACT</div>
+                    <div class="text-xs font-medium text-gray-500 dark:text-gray-400">ENTERPRISE LIMITED</div>
+                </div>
+            </a>
+            <nav class="hidden md:flex items-center space-x-6">
+                <a href="index.html#home" class="text-gray-600 hover:text-propact-amber dark:text-gray-300 dark:hover:text-propact-amber transition duration-200">Home</a>
+  <button class="text-gray-600 hover:text-propact-amber dark:text-gray-300 dark:hover:text-propact-amber transition duration-200 flex items-center" onclick="toggleServicesDropdown(event)">
+                        Services
+                        <svg class="w-4 h-4 ml-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="services-dropdown" class="absolute left-1/2 transform -translate-x-1/2 mt-3 w-64 bg-white dark:bg-gray-700 rounded-lg shadow-xl z-50 hidden transition-all duration-300 origin-top-left py-2">
+                        <a href="stagegy.html" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-propact-blue hover:text-white rounded-md mx-2" onclick="closeDropdowns()">Strategy & Consulting</a>
+                        <a href="talent.html" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-propact-blue hover:text-white rounded-md mx-2" onclick="closeDropdowns()">Talent Acquisition & HR</a>
+                        <a href="Regulatory.html" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-propact-blue hover:text-white rounded-md mx-2" onclick="closeDropdowns()"></a>
+                    </div>
+                </div>
+
+                <a href="index.html#about" class="text-gray-600 hover:text-propact-amber dark:text-gray-300 dark:hover:text-propact-amber transition duration-200">About Us</a>
+                <a href="index.html#contact" class="px-4 py-2 rounded-full bg-propact-amber text-white font-semibold hover:bg-opacity-90 transition duration-200 shadow-md">Contact</a>
+                <button class="p-2 rounded-full text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition duration-300">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                </button>
+            </nav>
+            <div class="flex items-center space-x-3 md:hidden">
+                <button class="p-2 rounded-lg text-propact-blue dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+                    <svg xmlns="http://www.w3.org="2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16m-7 6h7" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+    
+    <main>
+        <section class="pt-24 pb-16 bg-propact-blue text-white">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="max-w-4xl mx-auto text-center">
+                    <h1 class="text-5xl font-extrabold tracking-tight mb-4">
+                        <span class="block text-propact-amber">Talent Acquisition & HR</span>
+                    </h1>
+                    <p class="text-xl font-light mb-6">
+                        Sourcing and Developing Your Most Valuable Asset
+                    </p>
+                    <p class="opacity-90 max-w-2xl mx-auto">
+                        Our Talent Acquisition and HR division is dedicated to connecting your business with the right people and managing your human capital effectively. We ensure your team is competent, committed, and contributes positively to your company's performance.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-16 md:py-24 bg-propact-bg dark:bg-gray-900 transition-colors duration-300">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
+
+                    <div class="p-8 bg-white dark:bg-gray-800 rounded-xl shadow-xl transition duration-300 hover:shadow-2xl">
+                        <div class="flex items-center space-x-4 mb-4">
+                            <svg class="service-icon w-8 h-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" /></svg>
+                            <h3 class="text-2xl font-bold text-propact-blue dark:text-white">Talent Acquisition and Recruitment</h3>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-400 mb-6">
+                            We manage the entire recruitment lifecycle, from job profiling to candidate placement, ensuring a seamless and efficient process.
+                        </p>
+                        <ul class="space-y-3 text-lg text-gray-700 dark:text-gray-300 list-disc pl-5">
+                            <li>**Candidate Sourcing:** Utilizing a vast network and innovative platforms to find high-quality talent.</li>
+                            <li>**Screening and Vetting:** Conducting thorough interviews and background checks to ensure the best fit.</li>
+                            <li>**Onboarding Support:** Assisting with the integration of new hires into your organizational structure.</li>
+                        </ul>
+                    </div>
+
+                    <div class="p-8 bg-white dark:bg-gray-800 rounded-xl shadow-xl transition duration-300 hover:shadow-2xl">
+                        <div class="flex items-center space-x-4 mb-4">
+                            <svg class="service-icon w-8 h-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16 6l2.29 2.29-4.88 4.88-1.29-1.29-4.88 4.88-1.42-1.42L9.5 12.5l1.29 1.29 4.88-4.88L18 9.5l-2 2V6zM6 20h12v-2H6v2z" /></svg>
+                            <h3 class="text-2xl font-bold text-propact-blue dark:text-white">Executive Search</h3>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-400 mb-6">
+                            Specialized recruitment services dedicated to finding and placing senior-level executives and leaders who will drive your company's strategic direction.
+                        </p>
+                        <ul class="space-y-3 text-lg text-gray-700 dark:text-gray-300 list-disc pl-5">
+                            <li>**Confidential Search:** Discreetly identifying and approaching top-tier executive candidates.</li>
+                            <li>**Leadership Assessment:** Evaluating candidates' leadership style, strategic vision, and cultural fit.</li>
+                            <li>**Negotiation and Finalization:** Facilitating the offer, negotiation, and contract finalization process.</li>
+                        </ul>
+                    </div>
+
+                    <div class="p-8 bg-white dark:bg-gray-800 rounded-xl shadow-xl transition duration-300 hover:shadow-2xl">
+                        <div class="flex items-center space-x-4 mb-4">
+                            <svg class="service-icon w-8 h-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-1 14H5V8h14v10zM12 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z" /></svg>
+                            <h3 class="text-2xl font-bold text-propact-blue dark:text-white">Other Human Resources Provision</h3>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-400 mb-6">
+                            Comprehensive HR support services designed to manage compliance and optimize employee relations.
+                        </p>
+                        <ul class="space-y-3 text-lg text-gray-700 dark:text-gray-300 list-disc pl-5">
+                            <li>**Policy Development:** Drafting and updating employee handbooks and HR policies to meet current labour laws.</li>
+                            <li>**Performance Management Systems:** Implementing frameworks for goal setting, feedback, and performance reviews.</li>
+                            <li>**Employee Relations:** Providing mediation and guidance on employee disputes and disciplinary procedures.</li>
+                        </ul>
+                    </div>
+
+                </div>
+
+                <div class="mt-16 text-center">
+                    <a href="index.html#contact" class="inline-block px-10 py-4 bg-propact-amber text-white font-bold rounded-lg text-lg hover:bg-opacity-90 shadow-xl transition duration-300 transform hover:scale-105">
+                        Discuss Your Talent Strategy
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+        <section class="py-12 bg-gray-100 dark:bg-gray-800">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                 <h3 class="text-3xl font-bold text-propact-blue dark:text-white mb-4">Need Top-Tier Talent or HR Support?</h3>
+                 <p class="text-xl text-gray-600 dark:text-gray-300 mb-8">Let PROPACT be your strategic HR partner for a high-performing team.</p>
+                 <a href="index.html#contact" class="inline-block px-8 py-3 border-2 border-propact-amber text-propact-blue dark:text-propact-amber font-bold rounded-lg hover:bg-propact-amber hover:text-white transition duration-300">
+                    Connect with Our HR Experts
+                 </a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p>&copy; <span id="current-year"></span> PROPACT ENTERPRISE LIMITED. All rights reserved.</p>
+            <p class="text-sm text-gray-400 mt-2">Zambian Registered Company - Established 4th June 2025</p>
+        </div>
+    </footer>
+
+    <script>
+        // Set current year in footer (and add your theme toggle logic if needed)
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

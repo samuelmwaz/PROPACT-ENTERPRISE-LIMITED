@@ -1,0 +1,578 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROPACT Enterprise Limited - Solutions Crafted for Business Evolution</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class', 
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'propact-blue': '#143765', // Deep Navy/Blue
+                        'propact-amber': '#d4af37', // Gold/Brass Accent
+                        'propact-bg': '#f9fafb',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom styles for professional look and scroll-padding for sticky header */
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 6rem; /* Space for the fixed header */
+        }
+        .section-header {
+            position: relative;
+            display: inline-block;
+            padding-bottom: 0.5rem;
+            margin-bottom: 2rem;
+        }
+        .section-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50%;
+            height: 4px;
+            background-color: #d4af37; /* Propact Amber Accent */
+            border-radius: 9999px;
+        }
+        /* Simple icon styling for the services section */
+        .service-icon {
+            width: 2rem;
+            height: 2rem;
+            color: #d4af37; /* Propact Amber Accent */
+            fill: currentColor;
+        }
+        /* Style for service images to ensure consistent height */
+        .service-card-img {
+            height: 150px; /* Fixed height for visual consistency */
+            width: 100%;
+            object-fit: cover;
+            border-radius: 0.75rem 0.75rem 0 0; /* Rounded top corners only */
+        }
+    </style>
+</head>
+<body class="font-sans bg-propact-bg text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
+
+    <header class="sticky top-0 z-50 bg-white shadow-lg dark:bg-gray-800 dark:shadow-xl transition-colors duration-300">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <a href="#home" class="flex items-center space-x-3">
+                <img src=" images/propact_logo.jpg" 
+                     onerror="this.onerror=null;this.src='uploaded:propact_logo.jpg-6833ebaf-8b11-4f6a-8034-12a377d9ea10';" 
+                     alt="PROPACT Enterprise Limited Logo" 
+                     class="h-10 w-10">
+                
+                <div class="flex flex-col leading-none">
+                    <div class="text-2xl font-extrabold text-propact-blue dark:text-white tracking-wider">PROPACT</div>
+                    <div class="text-xs font-medium text-gray-500 dark:text-gray-400">ENTERPRISE LIMITED</div>
+                </div>
+            </a>
+
+            <nav class="hidden md:flex items-center space-x-6">
+                <a href="#home" class="text-gray-600 hover:text-propact-amber dark:text-gray-300 dark:hover:text-propact-amber transition duration-200">Home</a>
+                
+                <div class="relative group">
+                    <button class="text-gray-600 hover:text-propact-amber dark:text-gray-300 dark:hover:text-propact-amber transition duration-200 flex items-center" onclick="toggleServicesDropdown(event)">
+                        Services
+                        <svg class="w-4 h-4 ml-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="services-dropdown" class="absolute left-1/2 transform -translate-x-1/2 mt-3 w-64 bg-white dark:bg-gray-700 rounded-lg shadow-xl z-50 hidden transition-all duration-300 origin-top-left py-2">
+                        <a href="stagegy.html" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-propact-blue hover:text-white rounded-md mx-2" onclick="closeDropdowns()">Strategy & Consulting</a>
+                        <a href="talent.html" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-propact-blue hover:text-white rounded-md mx-2" onclick="closeDropdowns()">Talent Acquisition & HR</a>
+                        <a href="Regulatory.html" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-propact-blue hover:text-white rounded-md mx-2" onclick="closeDropdowns()">Regulatory & Compliance</a>
+                    </div>
+                </div>
+                <a href="#about" class="text-gray-600 hover:text-propact-amber dark:text-gray-300 dark:hover:text-propact-amber transition duration-200">About Us</a>
+                <a href="#contact" class="text-gray-600 hover:text-propact-amber dark:text-gray-300 dark:hover:text-propact-amber transition duration-200">Contact</a>
+                <a href="#contact" class="px-4 py-2 rounded-full bg-propact-amber text-white font-semibold hover:bg-opacity-90 transition duration-200 shadow-md">Get Started</a>
+
+                <button id="theme-toggle-desktop" class="p-2 rounded-full text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition duration-300" onclick="toggleTheme()">
+                    <svg id="theme-icon-desktop" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                    </svg>
+                </button>
+            </nav>
+
+            <div class="flex items-center space-x-3 md:hidden">
+                 <button id="theme-toggle-mobile" class="p-2 rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition duration-300" onclick="toggleTheme()">
+                    <svg id="theme-icon-mobile" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                    </svg>
+                </button>
+                <button id="mobile-menu-button" class="p-2 rounded-lg text-propact-blue dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16m-7 6h7" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-800 border-t border-gray-100 dark:border-gray-700">
+            <nav class="flex flex-col space-y-2 p-4">
+                <a href="#home" class="text-gray-600 hover:text-propact-amber dark:text-gray-300 dark:hover:text-propact-amber py-2 border-b border-gray-100 dark:border-gray-700" onclick="closeMobileMenu()">Home</a>
+                
+                <div class="py-2 border-b border-gray-100 dark:border-gray-700">
+                    <span class="text-propact-amber font-semibold block mb-2">Services</span>
+                    <a href="#strategy-detail" class="block pl-4 py-1 text-sm text-gray-600 dark:text-gray-300 hover:text-propact-blue" onclick="closeMobileMenu()">Strategy & Consulting</a>
+                    <a href="#talent-detail" class="block pl-4 py-1 text-sm text-gray-600 dark:text-gray-300 hover:text-propact-blue" onclick="closeMobileMenu()">Talent Acquisition & HR</a>
+                    <a href="#compliance-detail" class="block pl-4 py-1 text-sm text-gray-600 dark:text-gray-300 hover:text-propact-blue" onclick="closeMobileMenu()">Regulatory & Compliance</a>
+                </div>
+                <a href="#about" class="text-gray-600 hover:text-propact-amber dark:text-gray-300 dark:hover:text-propact-amber py-2 border-b border-gray-100 dark:border-gray-700" onclick="closeMobileMenu()">About Us</a>
+                <a href="#contact" class="text-propact-blue dark:text-propact-amber font-semibold py-2" onclick="closeMobileMenu()">Contact Us</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="pt-24 pb-16 md:pt-32 md:pb-24 bg-propact-blue text-white">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    
+                    <div class="text-center lg:text-left">
+                        <h1 class="text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight mb-4 leading-tight">
+                            <span class="block text-propact-amber">PROPACT</span> ENTERPRISE LIMITED
+                        </h1>
+                        <p class="text-xl md:text-2xl font-light mb-8 max-w-3xl lg:max-w-none mx-auto lg:mx-0">
+                            "Solutions crafted for business evolution"
+                        </p>
+                        <div class="space-y-4 sm:space-y-0 sm:space-x-6 flex flex-col sm:flex-row justify-center lg:justify-start">
+                            <a href="#services-intro" class="inline-block px-8 py-3 bg-propact-amber text-white font-bold rounded-lg hover:bg-opacity-90 shadow-xl transition duration-300 transform hover:scale-105">
+                                Explore Our Solutions
+                            </a>
+                            <a href="#contact" class="inline-block px-8 py-3 border-2 border-white text-white font-bold rounded-lg hover:bg-white hover:text-propact-blue transition duration-300">
+                                Get In Touch
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="hidden lg:block">
+                        <div class="grid grid-cols-2 gap-4">
+                            <img src=" images/stategy.jpg" 
+                                 alt="Image representing strategic planning and analytics" 
+                                 class="w-full h-auto object-cover rounded-xl shadow-xl border-4 border-propact-amber/50 transition duration-300 hover:scale-[1.02]">
+                            
+                            <img src="images/team_work.jpg" 
+                                 alt="Image representing successful teamwork and project execution" 
+                                 class="w-full h-auto object-cover rounded-xl shadow-xl border-4 border-propact-amber/50 transition duration-300 hover:scale-[1.02]">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="services-intro" class="py-16 md:py-24 bg-white dark:bg-gray-900 transition-colors duration-300">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-4xl font-bold text-propact-blue dark:text-white section-header">
+                    Our Core Services
+                </h2>
+                <p class="text-xl text-gray-600 dark:text-gray-300 mb-12 max-w-3xl">
+                    We offer end-to-end solutions spanning management consulting, human resource provision, regulatory compliance, and general trade. **Click on a card to see the full details below.**
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                    <a href="#strategy-detail" class="group bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl dark:hover:shadow-2xl transition duration-300 border-b-4 border-propact-amber overflow-hidden block">
+                        <img src="images/sc.jpg" 
+                             alt="Businessman climbing stairs representing growth and strategy" 
+                             class="service-card-img">
+
+                        <div class="p-6">
+                            <div class="flex items-center space-x-3 mb-2">
+                                <svg class="service-icon group-hover:scale-110 transition duration-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z" /></svg>
+                                <h3 class="text-xl font-semibold text-propact-blue dark:text-white group-hover:text-propact-amber transition duration-300">Strategy & Consulting</h3>
+                            </div>
+                            <ul class="space-y-2 text-gray-600 dark:text-gray-400 list-disc pl-5 mt-4 text-sm">
+                                <li>Management Consulting</li>
+                                <li>Workforce Planning and Analytics</li>
+                                <li>Organizational Transformation</li>
+                            </ul>
+                        </div>
+                    </a>
+
+                    <a href="#talent-detail" class="group bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl dark:hover:shadow-2xl transition duration-300 border-b-4 border-propact-amber overflow-hidden block">
+                         <img src="images/2.jpg " 
+                             alt="Two professionals in consultation representing executive search" 
+                             class="service-card-img">
+
+                        <div class="p-6">
+                            <div class="flex items-center space-x-3 mb-2">
+                                <svg class="service-icon group-hover:scale-110 transition duration-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" /></svg>
+                                <h3 class="text-xl font-semibold text-propact-blue dark:text-white group-hover:text-propact-amber transition duration-300">Talent Acquisition & HR</h3>
+                            </div>
+                            <ul class="space-y-2 text-gray-600 dark:text-gray-400 list-disc pl-5 mt-4 text-sm">
+                                <li>Talent Acquisition and Recruitment</li>
+                                <li>Executive Search</li>
+                                <li>Other Human Resources Provision</li>
+                            </ul>
+                        </div>
+                    </a>
+
+                    <a href="#compliance-detail" class="group bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl dark:hover:shadow-2xl transition duration-300 border-b-4 border-propact-amber overflow-hidden block">
+                        <img src="images/3.jpg" 
+                             alt="Hands putting puzzle pieces together symbolizing compliance and registration" 
+                             class="service-card-img">
+
+                        <div class="p-6">
+                            <div class="flex items-center space-x-3 mb-2">
+                                <svg class="service-icon group-hover:scale-110 transition duration-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5zm-2 0l-7 7-7-7h14zM5 19V7.91l7 7 7-7.09V19H5z" /></svg>
+                                <h3 class="text-xl font-semibold text-propact-blue dark:text-white group-hover:text-propact-amber transition duration-300">Regulatory & Compliance</h3>
+                            </div>
+                            <ul class="space-y-2 text-gray-600 dark:text-gray-400 list-disc pl-5 mt-4 text-sm">
+                                <li>Company Registration with PACRA</li>
+                                <li>NGO Registration</li>
+                                <li>Annual Returns Filing, Computer Printouts</li>
+                                <li>...and all key regulatory support.</li>
+                            </ul>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="mt-12 text-center pt-8">
+                    <p class="text-lg text-gray-700 dark:text-gray-300">
+                        *We also engage in **Other Retail Trade in Non-Specialized Stores** as part of our diversified business portfolio.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="strategy-detail" class="py-16 md:py-24 bg-gray-100 dark:bg-gray-800 transition-colors duration-300">
+             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="max-w-4xl mx-auto text-center mb-12">
+                    <h2 class="text-4xl font-bold text-propact-blue dark:text-white section-header mx-auto">
+                        Strategy & Consulting
+                    </h2>
+                    <p class="text-xl text-gray-600 dark:text-gray-300 mt-4">
+                        Providing the strategic insight and analytical support necessary for your business to achieve its long-term goals.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <div class="p-8 bg-white dark:bg-gray-700 rounded-xl shadow-xl border-t-4 border-propact-amber">
+                        <h3 class="text-2xl font-bold text-propact-blue dark:text-white mb-4">Management Consulting</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mb-6">Expert guidance to tackle your most complex business challenges, focusing on improving overall performance and profitability.</p>
+                        <ul class="space-y-3 text-gray-700 dark:text-gray-300 list-disc pl-5 text-sm">
+                            <li>Performance Improvement and Process Optimization.</li>
+                            <li>Operational Excellence and efficiency.</li>
+                            <li>Change Management support for major transitions.</li>
+                        </ul>
+                    </div>
+                    <div class="p-8 bg-white dark:bg-gray-700 rounded-xl shadow-xl border-t-4 border-propact-amber">
+                        <h3 class="text-2xl font-bold text-propact-blue dark:text-white mb-4">Workforce Planning and Analytics</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mb-6">Ensuring your workforce is perfectly aligned with your strategic business needs through data-driven planning and analysis.</p>
+                        <ul class="space-y-3 text-gray-700 dark:text-gray-300 list-disc pl-5 text-sm">
+                            <li>Demand Forecasting and talent gap analysis.</li>
+                            <li>HR Metrics and reporting.</li>
+                            <li>Succession planning.</li>
+                        </ul>
+                    </div>
+                    <div class="p-8 bg-white dark:bg-gray-700 rounded-xl shadow-xl border-t-4 border-propact-amber">
+                        <h3 class="text-2xl font-bold text-propact-blue dark:text-white mb-4">Organizational Transformation</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mb-6">Designing and implementing structural changes that make your organization more agile, resilient, and better positioned for growth.</p>
+                        <ul class="space-y-3 text-gray-700 dark:text-gray-300 list-disc pl-5 text-sm">
+                            <li>Structural Redesign and role clarity.</li>
+                            <li>Culture Alignment programs.</li>
+                            <li>Leadership Development and preparation.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="mt-12 text-center">
+                    <a href="#contact" class="inline-block px-8 py-3 bg-propact-amber text-white font-bold rounded-lg hover:bg-opacity-90 shadow-xl transition duration-300">
+                        Start Your Strategic Journey
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="talent-detail" class="py-16 md:py-24 bg-propact-bg dark:bg-gray-900 transition-colors duration-300">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="max-w-4xl mx-auto text-center mb-12">
+                    <h2 class="text-4xl font-bold text-propact-blue dark:text-white section-header mx-auto">
+                        Talent Acquisition & HR
+                    </h2>
+                    <p class="text-xl text-gray-600 dark:text-gray-300 mt-4">
+                        Connecting your business with the right people and managing your human capital effectively.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <div class="p-8 bg-white dark:bg-gray-800 rounded-xl shadow-xl border-t-4 border-propact-amber">
+                        <h3 class="text-2xl font-bold text-propact-blue dark:text-white mb-4">Talent Acquisition and Recruitment</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mb-6">We manage the entire recruitment lifecycle, from job profiling to candidate placement, ensuring a seamless and efficient process.</p>
+                        <ul class="space-y-3 text-gray-700 dark:text-gray-300 list-disc pl-5 text-sm">
+                            <li>Candidate Sourcing and high-quality vetting.</li>
+                            <li>Full Recruitment Lifecycle Management.</li>
+                            <li>New Hire Onboarding Support.</li>
+                        </ul>
+                    </div>
+                    <div class="p-8 bg-white dark:bg-gray-800 rounded-xl shadow-xl border-t-4 border-propact-amber">
+                        <h3 class="text-2xl font-bold text-propact-blue dark:text-white mb-4">Executive Search</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mb-6">Specialized services dedicated to finding and placing senior-level executives who will drive your company's strategic direction.</p>
+                        <ul class="space-y-3 text-gray-700 dark:text-gray-300 list-disc pl-5 text-sm">
+                            <li>Confidential, Discreet Search and vetting.</li>
+                            <li>Leadership Assessment for cultural fit.</li>
+                            <li>Offer Negotiation and contract finalization.</li>
+                        </ul>
+                    </div>
+                    <div class="p-8 bg-white dark:bg-gray-800 rounded-xl shadow-xl border-t-4 border-propact-amber">
+                        <h3 class="text-2xl font-bold text-propact-blue dark:text-white mb-4">Other Human Resources Provision</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mb-6">Comprehensive HR support services designed to manage compliance and optimize employee relations.</p>
+                        <ul class="space-y-3 text-gray-700 dark:text-gray-300 list-disc pl-5 text-sm">
+                            <li>Policy Development and compliance updates.</li>
+                            <li>Performance Management Systems implementation.</li>
+                            <li>Employee Relations and mediation.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="mt-12 text-center">
+                    <a href="#contact" class="inline-block px-8 py-3 bg-propact-amber text-white font-bold rounded-lg hover:bg-opacity-90 shadow-xl transition duration-300">
+                        Discuss Your Talent Needs
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="compliance-detail" class="py-16 md:py-24 bg-gray-100 dark:bg-gray-800 transition-colors duration-300">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="max-w-4xl mx-auto text-center mb-12">
+                    <h2 class="text-4xl font-bold text-propact-blue dark:text-white section-header mx-auto">
+                        Regulatory & Compliance
+                    </h2>
+                    <p class="text-xl text-gray-600 dark:text-gray-300 mt-4">
+                        Navigating Zambia's statutory environment to minimize legal risks and ensure smooth operations.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div class="p-8 bg-white dark:bg-gray-700 rounded-xl shadow-xl border-t-4 border-propact-amber">
+                        <h3 class="text-2xl font-bold text-propact-blue dark:text-white mb-4">Business Registration & Filing</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mb-6">Full support for establishing your entity and maintaining legal good standing.</p>
+                        <ul class="space-y-3 text-gray-700 dark:text-gray-300 list-disc pl-5 text-sm">
+                            <li>**Company Registration** with PACRA.</li>
+                            <li>**NGO Registration** with relevant authorities.</li>
+                            <li>**Annual Returns Filing** and Computer Printouts (PACRA).</li>
+                            <li>Intellectual Property Registration (Trademarks, Patents).</li>
+                        </ul>
+                    </div>
+                    <div class="p-8 bg-white dark:bg-gray-700 rounded-xl shadow-xl border-t-4 border-propact-amber">
+                        <h3 class="text-2xl font-bold text-propact-blue dark:text-white mb-4">Statutory & Regulatory Liaison</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mb-6">Comprehensive compliance support across all major Zambian regulatory bodies:</p>
+                        <ul class="space-y-3 text-gray-700 dark:text-gray-300 list-disc pl-5 text-sm">
+                            <li>**ZRA** (Zambia Revenue Authority) issues.</li>
+                            <li>**Napsa** and **NHIMA** compliance.</li>
+                            <li>**ZPPA** (Public Procurement), **CEEC**, and **EIZ**.</li>
+                            <li>Workers Compensation Fund Control Board (WCFCB).</li>
+                            <li>Zamcops, Labour office, and Local councils.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="mt-12 text-center">
+                    <a href="#contact" class="inline-block px-8 py-3 bg-propact-amber text-white font-bold rounded-lg hover:bg-opacity-90 shadow-xl transition duration-300">
+                        Consult Our Compliance Experts
+                    </a>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="about" class="py-16 md:py-24 bg-propact-blue text-white">
+             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    <div>
+                        <h2 class="text-4xl font-bold text-propact-amber section-header">
+                            Our Story & Vision
+                        </h2>
+                        <h3 class="text-2xl font-semibold mt-8 mb-4">Company Overview & History</h3>
+                        <p class="text-lg mb-4 opacity-90">
+                            **PROPACT ENTERPRISE LIMITED** is a Zambian registered company, established on the 4th of June 2025. Founded on the vision to redefine the professional services landscape, we started as a specialized management consulting company.
+                        </p>
+                        <p class="text-lg mb-4 opacity-90">
+                            We have since expanded significantly to offer a comprehensive recruitment division, HR provision, business registration, and support services covering PACRA, ZRA, NHIMA, and various compliance issues. Our aim is to provide **end-to-end solutions** for all our clients' talent, business, and regulatory needs.
+                        </p>
+
+                        <h3 class="text-2xl font-semibold mt-8 mb-4">Our Commitment</h3>
+                        <p class="text-lg mb-4 opacity-90">
+                            At PROPACT, we are dedicated to delivering exceptional services and building **long-lasting partnerships**. We deeply understand your unique challenges and aspirations to develop tailored solutions that bring about tangible, transformative results.
+                        </p>
+                    </div>
+
+                    <div>
+                        <img src="images/vedio.png" 
+                             alt="Professional meeting discussing strategy and integrity" 
+                             class="w-full h-auto object-cover rounded-xl shadow-2xl mb-8 hidden lg:block">
+
+                        <div class="p-8 bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-100 rounded-xl shadow-2xl transition-colors duration-300">
+                            <h4 class="text-xl font-bold text-propact-amber mb-4 border-b pb-2 border-gray-200 dark:border-gray-600">Mission Statement</h4>
+                            <p class="mb-6 italic">
+                                "Our mission is to be the preferred partner for businesses, delivering innovative and tailored solutions that empower our clients to thrive in an ever-evolving landscape through exceptional consulting, recruitment, and business support services."
+                            </p>
+                            <h4 class="text-xl font-bold text-propact-amber mb-4 border-b pb-2 border-gray-200 dark:border-gray-600">Vision</h4>
+                            <p>
+                                "To be the premier professional services company, renowned for our expertise, integrity, and the transformative impact we create for our clients."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="py-16 md:py-24 bg-propact-bg dark:bg-gray-900 transition-colors duration-300">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-4xl font-bold text-propact-blue dark:text-white section-header">
+                    Connect With Us
+                </h2>
+                <p class="text-xl text-gray-600 dark:text-gray-300 mb-12 max-w-3xl">
+                    Ready to evolve your business? Get in touch with our team today to learn how we can support your growth.
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg dark:shadow-2xl border-l-4 border-propact-amber transition-colors duration-300">
+                        <svg class="service-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" /></svg>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 mt-4">General Enquiries</p>
+                        <a href="mailto:propactenterpriselimited@gmail.com" class="text-lg font-semibold text-propact-blue dark:text-white hover:text-propact-amber break-words">
+                            propactenterpriselimited@gmail.com
+                        </a>
+                    </div>
+                    <div class="p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg dark:shadow-2xl border-l-4 border-propact-amber transition-colors duration-300">
+                        <svg class="service-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" /></svg>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 mt-4">Registered Office</p>
+                        <p class="text-base text-propact-blue dark:text-white">4th floor premium house, nasser road, kamwala, Lusaka, Zambia.</p>
+                    </div>
+                </div>
+
+
+                    <div class="p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg dark:shadow-2xl border-l-4 border-propact-amber transition-colors duration-300">
+                        <svg class="service-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.24 1.02l-2.2 2.2z" /></svg>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 mt-4">Call Us</p>
+                        <p class="text-lg font-semibold text-propact-blue dark:text-white">+260 973 073 806</p>
+                        <p class="text-lg font-semibold text-propact-blue dark:text-white">+260 975 527 730</p>
+                    </div>
+
+                <!-- LinkedIn Profile -->
+                    <a href="https://www.linkedin.com/in/sarah-banda-26a95b225/" target="_blank" rel="noopener noreferrer" class="p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg dark:shadow-2xl border-l-4 border-propact-amber transition-colors duration-300 hover:bg-gray-50 dark:hover:bg-gray-700 block group">
+                        <!-- LinkedIn Icon (Inline SVG) -->
+                        <svg class="service-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16 8C17.6569 8 19 9.34315 19 11V21H16V11C16 10.4477 15.5523 10 15 10C14.4477 10 14 10.4477 14 11V21H11V11C11 9.34315 12.3431 8 14 8C14.636 8 15.2223 8.19655 15.6966 8.52735L16 8ZM8 10H5V21H8V10ZM6.5 6.5C7.32843 6.5 8 5.82843 8 5C8 4.17157 7.32843 3.5 6.5 3.5C5.67157 3.5 5 4.17157 5 5C5 5.82843 5.67157 6.5 6.5 6.5Z" fill="currentColor"/>
+                        </svg>
+
+                        <p class="text-sm text-gray-500 dark:text-gray-400 mt-4">Connect with</p>
+                        <p class="text-lg font-semibold text-propact-blue dark:text-white group-hover:text-propact-amber break-words transition duration-200">
+                            Sarah Banda (LinkedIn)
+                        </p>
+                        <p class="text-xs text-gray-400 dark:text-gray-500 mt-1">Click to view profile</p>
+                    </a>
+                </div>
+
+            </div>
+        </section>
+                    
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p>&copy; <span id="current-year"></span> PROPACT ENTERPRISE LIMITED. All rights reserved.</p>
+            <p class="text-sm text-gray-400 mt-2">Zambian Registered Company - Established 4th June 2025</p>
+        </div>
+    </footer>
+
+    <script>
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const body = document.body;
+        const servicesDropdown = document.getElementById('services-dropdown');
+        
+        // --- Mobile Menu Functions ---
+        function toggleMobileMenu() {
+            mobileMenu.classList.toggle('hidden');
+        }
+
+        function closeMobileMenu() {
+             mobileMenu.classList.add('hidden');
+        }
+
+        mobileMenuButton.addEventListener('click', toggleMobileMenu);
+
+        // Set current year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // --- Dropdown Functions ---
+        function toggleServicesDropdown(event) {
+            event.stopPropagation();
+            servicesDropdown.classList.toggle('hidden');
+        }
+
+        function closeDropdowns() {
+            servicesDropdown.classList.add('hidden');
+            closeMobileMenu();
+        }
+
+        // Close dropdown if the user clicks anywhere outside of it
+        document.addEventListener('click', function(event) {
+            const dropdownButton = document.querySelector('.group button');
+
+            if (!servicesDropdown.contains(event.target) && !dropdownButton.contains(event.target)) {
+                servicesDropdown.classList.add('hidden');
+            }
+        });
+
+
+        // --- Dark Mode Functions ---
+        const themeIconDesktop = document.getElementById('theme-icon-desktop');
+        const themeIconMobile = document.getElementById('theme-icon-mobile');
+
+        const sunIcon = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>`;
+        const moonIcon = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>`;
+
+        function updateThemeIcons(isDark) {
+            const iconContent = isDark ? sunIcon : moonIcon;
+            themeIconDesktop.innerHTML = iconContent;
+            themeIconMobile.innerHTML = iconContent;
+        }
+
+        function toggleTheme() {
+            const isDark = body.classList.toggle('dark');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            updateThemeIcons(isDark);
+        }
+
+        function initTheme() {
+            let currentTheme = localStorage.getItem('theme');
+            
+            if (!currentTheme) {
+                currentTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            }
+
+            if (currentTheme === 'dark') {
+                body.classList.add('dark');
+                updateThemeIcons(true);
+            } else {
+                body.classList.remove('dark');
+                updateThemeIcons(false);
+            }
+        }
+
+        // Initialize theme when the script loads
+        initTheme();
+
+    </script>
+</body>
+</html>
+ 
+ 
+ 
+ 
+ 
